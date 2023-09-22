@@ -33,6 +33,15 @@ class SimpleMathTest {
 
         //Assert
         assertEquals(expected,actual);
+
+        //Examples
+//        assertNotEquals();
+//        assertNull();
+//        assertNotNull();
+//        assertTrue();
+//        assertFalse();
+//        assertThrows();
+//        assertDoesNotThrow();
     }
     @Test
     void twoPlusFiveShouldEqualsSeven(){
@@ -58,5 +67,21 @@ class SimpleMathTest {
 
         //Action and Arrange
         assertThrows(RuntimeException.class,() -> math.add(a,b));
+    }
+
+    @Test
+    void tenDividedByTwoShouldEqualsFive(){
+        assertEquals(5,math.division(10,2));
+    }
+
+    @Test
+    void tenDividedByFourShouldEqualsTwo(){
+        assertEquals(2,math.division(10,4));
+    }
+
+    @Test
+    void dividedByZeroShouldThrowArithmeticException(){
+        DividedByZeroException actualException = assertThrows(DividedByZeroException.class, () -> math.division(10, 0));
+        assertEquals(actualException.getMessage(),"Cannot divide by zero");
     }
 }
